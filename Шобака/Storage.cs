@@ -18,7 +18,7 @@ namespace Шобака
         private SQLiteCommand sql_cmd;
         private DataSet DS = new DataSet();
         private DataTable DT = new DataTable();
-        private string sPath = Path.Combine(Application.StartupPath, "C:\\Users\\Butin\\source\\repos\\Шобака\\Шобака\\NBD.db");
+        private string sPath = Path.Combine(Application.StartupPath, "C:\\Users\\Butin\\source\\repos\\Шобака\\Шобака\\NewBD.db");
         public Storage()
         {
             InitializeComponent();
@@ -41,7 +41,7 @@ namespace Шобака
         private void Storage_Load(object sender, EventArgs e)
         {
             string ConnectionString = @"Data Source=" + sPath +
-            ";New=False;Version=3";
+           ";New=False;Version=3";
             String selectCommand = "Select * from Storage";
             SelectTable(ConnectionString, selectCommand);
         }
@@ -96,6 +96,27 @@ namespace Шобака
             StorageNameTextBox.Text = "";
         }
 
+        private void Add_Click(object sender, EventArgs e)
+        {
+            {
+                string ConnectionString = @"Data Source=" + sPath +
+                ";New=False;Version=3";
+                String selectCommand = "select MAX(id) from Storage";
+                object maxValue = selectValue(ConnectionString, selectCommand);
+                if (Convert.ToString(maxValue) == "")
+                    maxValue = 0;
+                //вставка в таблицу Storage
+                string txtSQLQuery = "insert into Storage (id, StorageName) values (" +
+               (Convert.ToInt32(maxValue) + 1) + ", '" + StorageNameTextBox.Text + "')";
+                ExecuteQuery(txtSQLQuery);
+                //обновление dataGridView1
+                selectCommand = "select * from Storage";
+                refreshForm(ConnectionString, selectCommand);
+                StorageNameTextBox.Text = "";
+            }
+
+        }
+
         private void Edit_Click(object sender, EventArgs e)
         {
             if (StorageNameTextBox.Text == "")
@@ -121,7 +142,7 @@ namespace Шобака
         {
             //выбрана строка CurrentRow
             int CurrentRow = dataGridView1.SelectedCells[0].RowIndex;
-            //получить значение idMOL выбранной строки
+            //получить значение idStorage выбранной строки
             string valueId = dataGridView1[0, CurrentRow].Value.ToString();
             String selectCommand = "delete from Storage where id=" + valueId;
             string ConnectionString = @"Data Source=" + sPath +
@@ -132,32 +153,12 @@ namespace Шобака
             refreshForm(ConnectionString, selectCommand);
             StorageNameTextBox.Text = "";
         }
-
-        private void Add_Click(object sender, EventArgs e)
-        {
-            {
-                string ConnectionString = @"Data Source=" + sPath +
-                ";New=False;Version=3";
-                String selectCommand = "select MAX(id) from Storage";
-                object maxValue = selectValue(ConnectionString, selectCommand);
-                if (Convert.ToString(maxValue) == "")
-                    maxValue = 0;
-                //вставка в таблицу Storage
-                string txtSQLQuery = "insert into Storage (id, StorageName) values (" +
-               (Convert.ToInt32(maxValue) + 1) + ", '" + StorageNameTextBox.Text + "')";
-                ExecuteQuery(txtSQLQuery);
-                //обновление dataGridView1
-                selectCommand = "select * from Storage";
-                refreshForm(ConnectionString, selectCommand);
-                StorageNameTextBox.Text = "";
-            }
-        }
         private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             //выбрана строка CurrentRow
             int CurrentRow = dataGridView1.SelectedCells[0].RowIndex;
-            string Name = dataGridView1[1, CurrentRow].Value.ToString();
-            StorageNameTextBox.Text = Name;
+            string StoreName = dataGridView1[1, CurrentRow].Value.ToString();
+            StorageNameTextBox.Text = StoreName;
         }
     }
 }

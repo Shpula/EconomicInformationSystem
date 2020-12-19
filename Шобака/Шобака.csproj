@@ -71,6 +71,18 @@
     <Compile Include="chartOfAccounts.Designer.cs">
       <DependentUpon>chartOfAccounts.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPostingJournal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPostingJournal.Designer.cs">
+      <DependentUpon>FormPostingJournal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTransactionLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTransactionLog.Designer.cs">
+      <DependentUpon>FormTransactionLog.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +118,12 @@
     <EmbeddedResource Include="chartOfAccounts.resx">
       <DependentUpon>chartOfAccounts.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormPostingJournal.resx">
+      <DependentUpon>FormPostingJournal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTransactionLog.resx">
+      <DependentUpon>FormTransactionLog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
@@ -130,7 +148,6 @@
     <EmbeddedResource Include="Storage.resx">
       <DependentUpon>Storage.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="NBD.db" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

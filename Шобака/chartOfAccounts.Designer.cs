@@ -2,14 +2,14 @@
 {
     partial class chartOfAccounts
     {
-        /// <summary>
+        /// <Summmary>
         /// Required designer variable.
-        /// </summary>
+        /// </Summmary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
+        /// <Summmary>
         /// Clean up any resources being used.
-        /// </summary>
+        /// </Summmary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
@@ -22,10 +22,10 @@
 
         #region Windows Form Designer generated code
 
-        /// <summary>
+        /// <Summmary>
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
-        /// </summary>
+        /// </Summmary>
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();

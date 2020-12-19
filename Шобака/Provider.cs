@@ -19,7 +19,7 @@ namespace Шобака
         private SQLiteCommand sql_cmd;
         private DataSet DS = new DataSet();
         private DataTable DT = new DataTable();
-        private string sPath = Path.Combine(Application.StartupPath, "C:\\Users\\Butin\\source\\repos\\Шобака\\Шобака\\NBD.db");
+        private string sPath = Path.Combine(Application.StartupPath, "C:\\Users\\Butin\\source\\repos\\Шобака\\Шобака\\NewBD.db");
         public Provider()
         {
             InitializeComponent();
@@ -108,7 +108,7 @@ namespace Шобака
                 if (Convert.ToString(maxValue) == "")
                     maxValue = 0;
                 //вставка в таблицу Provider
-                string txtSQLQuery = "insert into Provider (id, FIO, LegalAddress) values (" +
+                string txtSQLQuery = "insert into Provider (id, FIO, Address) values (" +
                (Convert.ToInt32(maxValue) + 1) + ", '" + FIOTextBox.Text + "','" + LegalAddressTextBox.Text + "')";
                 ExecuteQuery(txtSQLQuery);
                 //обновление dataGridView1
@@ -148,7 +148,7 @@ namespace Шобака
             string ChangeName = FIOTextBox.Text;
             string ChangeAddress = LegalAddressTextBox.Text;
 
-            String selectCommand = "update Provider set FIO='" + ChangeName + "', LegalAddress='" + ChangeAddress + "' where id = " + valueId;
+            String selectCommand = "update Provider set FIO='" + ChangeName + "', Address='" + ChangeAddress + "' where id = " + valueId;
             string ConnectionString = @"Data Source=" + sPath + ";New=False;Version=3";
             changeValue(ConnectionString, selectCommand);
             //обновление dataGridView1

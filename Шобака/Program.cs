@@ -8,9 +8,9 @@ namespace Шобака
 {
     static class Program
     {
-        /// <summary>
+        /// <Summmary>
         /// Главная точка входа для приложения.
-        /// </summary>
+        /// </Summmary>
         [STAThread]
         static void Main()
         {

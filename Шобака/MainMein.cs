@@ -19,7 +19,7 @@ namespace Шобака
         private SQLiteCommand sql_cmd;
         private DataSet DS = new DataSet();
         private DataTable DT = new DataTable();
-        private string sPath = Path.Combine(Application.StartupPath, "C:\\Users\\Butin\\source\\repos\\Шобака\\Шобака\\NBD.db");
+        private string sPath = Path.Combine(Application.StartupPath, "C:\\Users\\Butin\\source\\repos\\Шобака\\Шобака\\NewBD.db");
         public MainMein()
         {
             InitializeComponent();
@@ -114,7 +114,7 @@ namespace Шобака
                 if (Convert.ToString(maxValue) == "")
                     maxValue = 0;
                 //вставка в таблицу MainMein
-                string txtSQLQuery = "insert into MainMein (id, Price, StoreName) values (" +
+                string txtSQLQuery = "insert into MainMein (id, Price, MaterialName) values (" +
                (Convert.ToInt32(maxValue) + 1) + ", '" + PriceTextBox.Text + "','" + StoreNameTextBox.Text + "')";
                 ExecuteQuery(txtSQLQuery);
                 //обновление dataGridView1
@@ -154,7 +154,7 @@ namespace Шобака
             string Price = PriceTextBox.Text;
             string StoreName = StoreNameTextBox.Text;
 
-            String selectCommand = "update MainMein set Price='" + Price + "', StoreName='" + StoreName + "' where id = " + valueId;
+            String selectCommand = "update MainMein set Price='" + Price + "', MaterialName='" + StoreName + "' where id = " + valueId;
             string ConnectionString = @"Data Source=" + sPath + ";New=False;Version=3";
             changeValue(ConnectionString, selectCommand);
             //обновление dataGridView1

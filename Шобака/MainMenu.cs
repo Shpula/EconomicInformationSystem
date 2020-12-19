@@ -18,7 +18,7 @@ namespace Шобака
         private SQLiteCommand sql_cmd;
         private DataSet DS = new DataSet();
         private DataTable DT = new DataTable();
-        private string sPath = Path.Combine(Application.StartupPath, "NBD.db");
+        private string sPath = Path.Combine(Application.StartupPath, "NewBD.db");
         public MainMenu()
         {
             InitializeComponent();
@@ -51,6 +51,18 @@ namespace Шобака
         private void основнойСчетToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MainMein chart = new MainMein();
+            chart.Show();
+        }
+
+        private void журналОперацийToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormTransactionLog chart = new FormTransactionLog();
+            chart.Show(); 
+        }
+
+        private void жерналПроводокToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormPostingJournal chart = new FormPostingJournal(0);
             chart.Show();
         }
     }
