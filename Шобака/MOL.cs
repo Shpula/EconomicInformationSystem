@@ -18,7 +18,7 @@ namespace Шобака
         private SQLiteCommand sql_cmd;
         private DataSet DS = new DataSet();
         private DataTable DT = new DataTable();
-        private string sPath = Path.Combine(Application.StartupPath, "C:\\Users\\Butin\\source\\repos\\Шобака\\Шобака\\NewBD.db");
+        private string sPath = Path.Combine(Application.StartupPath, "C:\\Users\\79021\\source\\repos\\EconomicInformationSystem\\Шобака\\NewBD.db");
         public MOL()
         {
             InitializeComponent();
